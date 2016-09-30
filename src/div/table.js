@@ -63,7 +63,8 @@ export default class DivTable extends Component {
       style,
       width,
       height,
-      children
+      children,
+      ...rest
     } = this.props;
 
     const defaultStyle = {
@@ -76,7 +77,7 @@ export default class DivTable extends Component {
     };
 
     return (
-      <div style={[defaultStyle]}>
+      <div style={[defaultStyle]} {...rest}>
         <div style={style}>
           {this.validRowChildren(children)}
         </div>

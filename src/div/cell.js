@@ -19,7 +19,8 @@ export default class DivCell extends Component {
       style,
       rowHeight,
       cellWidth,
-      children
+      children,
+      ...rest
     } = this.props;
 
     const defaultOutterStyle = {
@@ -36,13 +37,13 @@ export default class DivCell extends Component {
     const defaultInnerStyle = {
       width: '100%',
       height: '100%',
-      boxSizing: 'inherit',
-      MozBoxSizing: 'inherit',
-      WebkitBoxSizing: 'inherit'
+      boxSizing: 'border-box',
+      MozBoxSizing: 'border-box',
+      WebkitBoxSizing: 'border-box'
     };
 
     return (
-      <div style={[defaultOutterStyle, outterStyle]}>
+      <div style={[defaultOutterStyle, outterStyle]} {...rest}>
         <div style={[defaultInnerStyle, style]}>
           {children}
         </div>

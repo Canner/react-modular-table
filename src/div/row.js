@@ -60,7 +60,8 @@ export default class DivRow extends Component {
       outterStyle,
       style,
       rowHeight,
-      children
+      children,
+      ...rest
     } = this.props;
 
     const defaultOutterStyle = {
@@ -75,11 +76,14 @@ export default class DivRow extends Component {
 
     const defaultInnerStyle = {
       width: 'auto',
-      height: 'auto'
+      height: 'auto',
+      boxSizing: 'border-box',
+      MozBoxSizing: 'border-box',
+      WebkitBoxSizing: 'border-box'
     };
 
     return (
-      <div style={[defaultOutterStyle, outterStyle]}>
+      <div style={[defaultOutterStyle, outterStyle]} {...rest}>
         <div style={[defaultInnerStyle, style]}>
           {this.validColumnChildren(children)}
         </div>

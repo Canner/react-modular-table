@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import {DivTable, DivRow, DivCell} from '../src/';
 
 ReactDOM.render(
-  <DivTable>
+  <DivTable onClick={() => {console.log('click!')}}>
   	<DivRow style={{border: '1px solid #CCC'}}>
   		<DivCell style={{border: '2px solid red'}}>
   			test
