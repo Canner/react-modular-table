@@ -67,8 +67,7 @@
     "validate": "npm ls"
   },
   "pre-commit": [
-    "lint",
-    "test"
+    "lint"
   ],
   "repository": "Canner/react-modular-table",
   "peerDependencies": {
