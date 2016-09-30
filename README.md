@@ -46,15 +46,15 @@ ReactDOM.render(
 
 ## Components for **\<Div\/\>** Table
 
-### \<DivTable\/\>
+### \<DivTable/\>
 
 Using `<div/>` to build your table, it's children should be only `<DivRow/>`
 
-### \<DivRow\/\>
+### \<DivRow/\>
 
 Using `<div/>` to build your table row, it's children should be only `<DivCell/>`
 
-### \<DivCell\/\>
+### \<DivCell/\>
 
 the smallest component for the div table. Use to define the cells.
 
