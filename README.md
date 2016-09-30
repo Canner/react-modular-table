@@ -44,7 +44,7 @@ ReactDOM.render(
 
 ```
 
-## Components for **\<Div\/\>** Table
+## Components for **\<Div/\>** Table
 
 ### \<DivTable/\>
 
