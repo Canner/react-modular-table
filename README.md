@@ -82,6 +82,8 @@ the smallest component for the div table. Use to define the cells.
 | style     | object   | false        | {}          | customize styles |
 | outterStyle  | object   | false         | {}         | customize outerStyles      |
 
+other props (other than the props above) send to `<DivCell/>` will pass to the `<div/>` directly.
+
 In other words, `<DivCell/>` is just like `<td/>`.
 
 ## Start example server
