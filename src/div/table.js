@@ -73,7 +73,8 @@ export default class DivTable extends Component {
       display: 'table',
       boxSizing: 'border-box',
       MozBoxSizing: 'border-box',
-      WebkitBoxSizing: 'border-box'
+      WebkitBoxSizing: 'border-box',
+      borderCollapse: 'collapse'
     };
 
     return (

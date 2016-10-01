@@ -79,7 +79,8 @@ export default class DivRow extends Component {
       height: 'auto',
       boxSizing: 'border-box',
       MozBoxSizing: 'border-box',
-      WebkitBoxSizing: 'border-box'
+      WebkitBoxSizing: 'border-box',
+      display: 'flex'
     };
 
     return (
