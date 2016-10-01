@@ -10,6 +10,8 @@ export default class DivTable extends Component {
     this.validRowChildren = this.validRowChildren.bind(this);
   }
 
+  static displayName = 'DivTable';
+
   static propTypes = {
     style: PropTypes.object,
     width: PropTypes.number.isRequired,

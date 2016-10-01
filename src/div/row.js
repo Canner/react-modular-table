@@ -11,7 +11,7 @@ export default class DivRow extends Component {
   }
 
   static propTypes = {
-    outterStyle: PropTypes.object,
+    outerStyle: PropTypes.object,
     style: PropTypes.object,
     width: PropTypes.number,
     height: PropTypes.number,
@@ -57,7 +57,7 @@ export default class DivRow extends Component {
 
   render() {
     const {
-      outterStyle,
+      outerStyle,
       style,
       rowHeight,
       children,
@@ -84,7 +84,7 @@ export default class DivRow extends Component {
     };
 
     return (
-      <div style={[defaultOutterStyle, outterStyle]} {...rest}>
+      <div style={[defaultOutterStyle, outerStyle]} {...rest}>
         <div style={[defaultInnerStyle, style]}>
           {this.validColumnChildren(children)}
         </div>

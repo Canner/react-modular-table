@@ -4,7 +4,7 @@ import Radium from 'radium';
 @Radium
 export default class DivCell extends Component {
   static propTypes = {
-    outterStyle: PropTypes.object,
+    outerStyle: PropTypes.object,
     style: PropTypes.object,
     rowHeight: PropTypes.number,
     cellWidth: PropTypes.number,
@@ -15,7 +15,7 @@ export default class DivCell extends Component {
 
   render() {
     const {
-      outterStyle,
+      outerStyle,
       style,
       rowHeight,
       cellWidth,
@@ -43,7 +43,7 @@ export default class DivCell extends Component {
     };
 
     return (
-      <div style={[defaultOutterStyle, outterStyle]} {...rest}>
+      <div style={[defaultOutterStyle, outerStyle]} {...rest}>
         <div style={[defaultInnerStyle, style]}>
           {children}
         </div>

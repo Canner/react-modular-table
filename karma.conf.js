@@ -16,18 +16,24 @@ module.exports = function(config) {
     webpack: {
       externals: {
         'react/lib/ReactContext': 'window',
+        'jsdom': 'window',
+        'cheerio': 'window',
         'react/addons': true,
         'react/lib/ExecutionEnvironment': true
       },
       devtool: 'inline-source-map',
       module: {
         loaders: [
-          {test: /\.js$/, loaders: ['babel'], exclude: /node_modules/}
+          {
+            test: /\.js$/,
+            loaders: ['babel'],
+            exclude: path.resolve(__dirname, "node_modules")
+          }
         ]
       },
       resolve: {
         alias: {
-          dispatchRouter: path.join(__dirname, './src/')
+          ModularTable: path.join(__dirname, './src/')
         }
       }
     },
