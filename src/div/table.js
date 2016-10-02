@@ -36,7 +36,7 @@ export default class DivTable extends Component {
     if (!children) {
       return;
     }
-    const amountChildren = children.length;
+    const amountChildren = React.Children.toArray(children).length;
 
     React.Children.forEach(children, child => {
       if (child === null) {

@@ -6,8 +6,8 @@ export default class DivCell extends Component {
   static propTypes = {
     outerStyle: PropTypes.object,
     style: PropTypes.object,
-    rowHeight: PropTypes.number,
-    cellWidth: PropTypes.number,
+    rowHeight: PropTypes.number.isRequired,
+    cellWidth: PropTypes.number.isRequired,
     children: PropTypes.node
   };
 

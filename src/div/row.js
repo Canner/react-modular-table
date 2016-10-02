@@ -13,9 +13,9 @@ export default class DivRow extends Component {
   static propTypes = {
     outerStyle: PropTypes.object,
     style: PropTypes.object,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    rowHeight: PropTypes.number,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    rowHeight: PropTypes.number.isRequired,
     children: PropTypes.node
   };
 
@@ -32,7 +32,7 @@ export default class DivRow extends Component {
     if (!children) {
       return;
     }
-    const amountChildren = children.length;
+    const amountChildren = React.Children.toArray(children).length;
 
     React.Children.forEach(children, child => {
       if (child === null) {
