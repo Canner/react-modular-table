@@ -92,6 +92,10 @@ In other words, `<DivCell/>` is just like `<td/>`.
 node devServer.js
 ```
 
+## Maintainer
+
+[chilijung](https://github.com/chilijung)
+
 ## License
 
 MIT © [Canner](https://github.com/canner)
