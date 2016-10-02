@@ -53,6 +53,7 @@ Using `<div/>` to build your table, it's children **should only be** `<DivRow/>`
 | **props** | **type** | **required** | **default** | **description**  |
 |-----------|----------|--------------|-------------|------------------|
 | style     | object   | false        | {}          | customize styles |
+| outerStyle     | object   | false        | {}          | customize outerStyles |
 | width     | number   | true         | 350         | table width      |
 | height    | number   | true         | 350         | table height     |
 
