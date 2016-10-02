@@ -31,6 +31,11 @@ describe('DivRow', function() {
     const wrapper = mount(<DivRow foo={'bar'}/>);
     expect(wrapper).to.have.prop('foo').equal('bar');
   });
+
+  it('should pass data-rowHeight attribute in DivRow', () => {
+    const wrapper = mount(<DivRow rowHeight={100}/>);
+    expect(wrapper).to.have.attr('data-rowHeight').equal('100');
+  });
 });
 
 describe('DivRow: Cell', function() {

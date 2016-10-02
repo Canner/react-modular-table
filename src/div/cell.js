@@ -6,8 +6,8 @@ export default class DivCell extends Component {
   static propTypes = {
     outerStyle: PropTypes.object,
     style: PropTypes.object,
-    rowHeight: PropTypes.number.isRequired,
-    cellWidth: PropTypes.number.isRequired,
+    rowHeight: PropTypes.number,
+    cellWidth: PropTypes.number,
     children: PropTypes.node
   };
 
@@ -43,7 +43,8 @@ export default class DivCell extends Component {
     };
 
     return (
-      <div style={[defaultOutterStyle, outerStyle]} {...rest}>
+      <div style={[defaultOutterStyle, outerStyle]} {...rest}
+        data-cellWidth={cellWidth} data-rowHeight={rowHeight}>
         <div style={[defaultInnerStyle, style]}>
           {children}
         </div>

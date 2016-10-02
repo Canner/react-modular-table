@@ -71,6 +71,8 @@ Using `<div/>` to build your table row, it's children **should only be** `<DivCe
 
 other props (other than the props above) send to `<DivRow/>` will pass to the `<div/>` directly.
 
+You can get row height via `data-rowHeight` attribute.
+
 In other words, `<DivRow/>` is just like `<tr/>`.
 
 ### \<DivCell/\>
@@ -83,6 +85,10 @@ the smallest component for the div table. Use to define the cells.
 | outterStyle  | object   | false         | {}         | customize outerStyles      |
 
 other props (other than the props above) send to `<DivCell/>` will pass to the `<div/>` directly.
+
+You can get row height via `data-rowHeight` attribute.
+
+You can get cell width via `data-cellWidth` attribute.
 
 In other words, `<DivCell/>` is just like `<td/>`.
 

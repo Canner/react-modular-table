@@ -21,6 +21,12 @@ describe('DivTable', function() {
     expect(wrapper).to.have.style('height').equal('200px');
   });
 
+  it('expect outer div have cusomize style in DivTable', () => {
+    const wrapper = mount(<DivTable outerStyle={{border: '1px solid #CCC'}}/>);
+    expect(wrapper).to.have.style('border')
+      .equal('1px solid rgb(204, 204, 204)');
+  });
+
   it('expect inner div have cusomize style in DivTable', () => {
     const wrapper = mount(<DivTable style={{border: '1px solid #CCC'}}/>);
     expect(wrapper.children()).to.have.style('border')

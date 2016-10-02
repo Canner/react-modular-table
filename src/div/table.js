@@ -13,6 +13,7 @@ export default class DivTable extends Component {
   static displayName = 'DivTable';
 
   static propTypes = {
+    outerStyle: PropTypes.object,
     style: PropTypes.object,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
@@ -62,6 +63,7 @@ export default class DivTable extends Component {
 
   render() {
     const {
+      outerStyle,
       style,
       width,
       height,
@@ -80,7 +82,7 @@ export default class DivTable extends Component {
     };
 
     return (
-      <div style={[defaultStyle]} {...rest}>
+      <div style={[defaultStyle, outerStyle]} {...rest}>
         <div style={style}>
           {this.validRowChildren(children)}
         </div>

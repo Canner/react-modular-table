@@ -32,4 +32,14 @@ describe('DivCell', function() {
     const wrapper = mount(<DivCell foo={'bar'}/>);
     expect(wrapper).to.have.prop('foo').equal('bar');
   });
+
+  it('should pass data-rowHeight attribute in DivRow', () => {
+    const wrapper = mount(<DivCell rowHeight={100}/>);
+    expect(wrapper).to.have.attr('data-rowHeight').equal('100');
+  });
+
+  it('should pass data-cellWidth attribute in DivRow', () => {
+    const wrapper = mount(<DivCell cellWidth={100}/>);
+    expect(wrapper).to.have.attr('data-cellWidth').equal('100');
+  });
 });

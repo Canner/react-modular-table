@@ -13,9 +13,9 @@ export default class DivRow extends Component {
   static propTypes = {
     outerStyle: PropTypes.object,
     style: PropTypes.object,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-    rowHeight: PropTypes.number.isRequired,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    rowHeight: PropTypes.number,
     children: PropTypes.node
   };
 
@@ -84,7 +84,8 @@ export default class DivRow extends Component {
     };
 
     return (
-      <div style={[defaultOutterStyle, outerStyle]} {...rest}>
+      <div style={[defaultOutterStyle, outerStyle]} {...rest}
+        data-rowHeight={rowHeight}>
         <div style={[defaultInnerStyle, style]}>
           {this.validColumnChildren(children)}
         </div>
