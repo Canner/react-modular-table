@@ -12,22 +12,34 @@ module.exports = function(config) {
     preprocessors: {
       'tests.webpack.js': ['webpack', 'sourcemap']
     },
+    customLaunchers: {
+      Chrome_travis_ci: { // eslint-disable-line
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
     reporters: ['dots'],
     webpack: {
       externals: {
         'react/lib/ReactContext': 'window',
+        'jsdom': 'window',
+        'cheerio': 'window',
         'react/addons': true,
         'react/lib/ExecutionEnvironment': true
       },
       devtool: 'inline-source-map',
       module: {
         loaders: [
-          {test: /\.js$/, loaders: ['babel'], exclude: /node_modules/}
+          {
+            test: /\.js$/,
+            loaders: ['babel'],
+            exclude: path.resolve(__dirname, "node_modules")
+          }
         ]
       },
       resolve: {
         alias: {
-          dispatchRouter: path.join(__dirname, './src/')
+          ModularTable: path.join(__dirname, './src/')
         }
       }
     },
@@ -35,4 +47,8 @@ module.exports = function(config) {
       noInfo: true
     }
   });
+
+  if (process.env.TRAVIS) {
+    config.browsers = ['Chrome_travis_ci'];
+  }
 };

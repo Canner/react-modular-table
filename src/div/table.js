@@ -10,7 +10,10 @@ export default class DivTable extends Component {
     this.validRowChildren = this.validRowChildren.bind(this);
   }
 
+  static displayName = 'DivTable';
+
   static propTypes = {
+    outerStyle: PropTypes.object,
     style: PropTypes.object,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
@@ -34,7 +37,7 @@ export default class DivTable extends Component {
     if (!children) {
       return;
     }
-    const amountChildren = children.length;
+    const amountChildren = React.Children.toArray(children).length;
 
     React.Children.forEach(children, child => {
       if (child === null) {
@@ -60,6 +63,7 @@ export default class DivTable extends Component {
 
   render() {
     const {
+      outerStyle,
       style,
       width,
       height,
@@ -73,11 +77,12 @@ export default class DivTable extends Component {
       display: 'table',
       boxSizing: 'border-box',
       MozBoxSizing: 'border-box',
-      WebkitBoxSizing: 'border-box'
+      WebkitBoxSizing: 'border-box',
+      borderCollapse: 'collapse'
     };
 
     return (
-      <div style={[defaultStyle]} {...rest}>
+      <div style={[defaultStyle, outerStyle]} {...rest}>
         <div style={style}>
           {this.validRowChildren(children)}
         </div>

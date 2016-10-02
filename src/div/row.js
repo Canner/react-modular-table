@@ -11,7 +11,7 @@ export default class DivRow extends Component {
   }
 
   static propTypes = {
-    outterStyle: PropTypes.object,
+    outerStyle: PropTypes.object,
     style: PropTypes.object,
     width: PropTypes.number,
     height: PropTypes.number,
@@ -32,7 +32,7 @@ export default class DivRow extends Component {
     if (!children) {
       return;
     }
-    const amountChildren = children.length;
+    const amountChildren = React.Children.toArray(children).length;
 
     React.Children.forEach(children, child => {
       if (child === null) {
@@ -57,7 +57,7 @@ export default class DivRow extends Component {
 
   render() {
     const {
-      outterStyle,
+      outerStyle,
       style,
       rowHeight,
       children,
@@ -79,11 +79,13 @@ export default class DivRow extends Component {
       height: 'auto',
       boxSizing: 'border-box',
       MozBoxSizing: 'border-box',
-      WebkitBoxSizing: 'border-box'
+      WebkitBoxSizing: 'border-box',
+      display: 'flex'
     };
 
     return (
-      <div style={[defaultOutterStyle, outterStyle]} {...rest}>
+      <div style={[defaultOutterStyle, outerStyle]} {...rest}
+        data-rowHeight={rowHeight}>
         <div style={[defaultInnerStyle, style]}>
           {this.validColumnChildren(children)}
         </div>
