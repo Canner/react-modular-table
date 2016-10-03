@@ -7,8 +7,8 @@ describe('DivTable', function() {
   it('expect render a DivTable', () => {
     const wrapper = mount(<DivTable/>);
     expect(wrapper).to.have.style('display').equal('table');
-    expect(wrapper).to.have.style('width').equal('350px');
-    expect(wrapper).to.have.style('height').equal('350px');
+    expect(wrapper).to.have.style('minWidth').equal('350px');
+    expect(wrapper).to.have.style('minHeight').equal('350px');
     expect(wrapper).to.have.style('boxSizing').equal('border-box');
     expect(wrapper).to.have.style('MozBoxSizing').equal('border-box');
     expect(wrapper).to.have.style('WebkitBoxSizing').equal('border-box');
@@ -17,8 +17,8 @@ describe('DivTable', function() {
 
   it('expect render a DivTable, with customize width, height', () => {
     const wrapper = mount(<DivTable width={200} height={200}/>);
-    expect(wrapper).to.have.style('width').equal('200px');
-    expect(wrapper).to.have.style('height').equal('200px');
+    expect(wrapper).to.have.style('minWidth').equal('200px');
+    expect(wrapper).to.have.style('minHeight').equal('200px');
   });
 
   it('expect outer div have cusomize style in DivTable', () => {
@@ -50,8 +50,8 @@ describe('DivTable: Row', function() {
     const wrapper = mount(<DivTable><DivRow/></DivTable>);
     const wrapperTable = wrapper.find('DivTable');
     expect(wrapperTable).to.have.style('display').equal('table');
-    expect(wrapperTable).to.have.style('width').equal('350px');
-    expect(wrapperTable).to.have.style('height').equal('350px');
+    expect(wrapperTable).to.have.style('minWidth').equal('350px');
+    expect(wrapperTable).to.have.style('minHeight').equal('350px');
     expect(wrapperTable).to.have.style('boxSizing').equal('border-box');
     expect(wrapperTable).to.have.style('MozBoxSizing').equal('border-box');
     expect(wrapperTable).to.have.style('WebkitBoxSizing').equal('border-box');
@@ -84,11 +84,11 @@ describe('DivTable: Row', function() {
     expect(wrapperRow).to.have.length(2);
     expect(wrapperRow.at(0)).to.have.prop('height').equal(350);
     expect(wrapperRow.at(0)).to.have.prop('width').equal(350);
-    expect(wrapperRow.at(0)).to.have.style('height').equal('175px');
+    expect(wrapperRow.at(0)).to.have.style('minHeight').equal('175px');
     expect(wrapperRow.at(0)).to.have.style('width').equal('100%');
     expect(wrapperRow.at(1)).to.have.prop('height').equal(350);
     expect(wrapperRow.at(1)).to.have.prop('width').equal(350);
-    expect(wrapperRow.at(1)).to.have.style('height').equal('175px');
+    expect(wrapperRow.at(1)).to.have.style('minHeight').equal('175px');
     expect(wrapperRow.at(1)).to.have.style('width').equal('100%');
   });
 });

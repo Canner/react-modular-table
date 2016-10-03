@@ -72,8 +72,8 @@ export default class DivTable extends Component {
     } = this.props;
 
     const defaultStyle = {
-      width: width,
-      height: height,
+      minWidth: width,
+      minHeight: height,
       display: 'table',
       boxSizing: 'border-box',
       MozBoxSizing: 'border-box',

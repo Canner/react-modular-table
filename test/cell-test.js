@@ -6,8 +6,8 @@ import {mount} from 'enzyme';
 describe('DivCell', function() {
   it('expect render a DivCell', () => {
     const wrapper = mount(<DivCell rowHeight={100} cellWidth={100}/>);
-    expect(wrapper).to.have.style('width').equal('100px');
-    expect(wrapper).to.have.style('height').equal('100px');
+    expect(wrapper).to.have.style('minWidth').equal('100px');
+    expect(wrapper).to.have.style('minHeight').equal('100px');
     expect(wrapper).to.have.style('boxSizing').equal('inherit');
     expect(wrapper).to.have.style('MozBoxSizing').equal('inherit');
     expect(wrapper).to.have.style('WebkitBoxSizing').equal('inherit');

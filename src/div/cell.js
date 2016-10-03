@@ -24,8 +24,8 @@ export default class DivCell extends Component {
     } = this.props;
 
     const defaultOutterStyle = {
-      width: cellWidth,
-      height: rowHeight,
+      minWidth: cellWidth,
+      minHeight: rowHeight,
       boxSizing: 'inherit',
       MozBoxSizing: 'inherit',
       WebkitBoxSizing: 'inherit',

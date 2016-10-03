@@ -66,7 +66,7 @@ export default class DivRow extends Component {
 
     const defaultOutterStyle = {
       width: '100%',
-      height: rowHeight,
+      minHeight: rowHeight,
       display: 'table-row',
       verticalAlign: 'top',
       boxSizing: 'inherit',

@@ -7,7 +7,7 @@ describe('DivRow', function() {
   it('expect render a DivRow', () => {
     const wrapper = mount(<DivRow height={350} width={350} rowHeight={100}/>);
     expect(wrapper).to.have.style('width').equal('100%');
-    expect(wrapper).to.have.style('height').equal('100px');
+    expect(wrapper).to.have.style('minHeight').equal('100px');
     expect(wrapper).to.have.style('boxSizing').equal('inherit');
     expect(wrapper).to.have.style('MozBoxSizing').equal('inherit');
     expect(wrapper).to.have.style('WebkitBoxSizing').equal('inherit');
@@ -44,7 +44,7 @@ describe('DivRow: Cell', function() {
       <DivCell/>
     </DivRow>);
     expect(wrapper).to.have.style('width').equal('100%');
-    expect(wrapper).to.have.style('height').equal('100px');
+    expect(wrapper).to.have.style('minHeight').equal('100px');
     expect(wrapper).to.have.style('boxSizing').equal('inherit');
     expect(wrapper).to.have.style('MozBoxSizing').equal('inherit');
     expect(wrapper).to.have.style('WebkitBoxSizing').equal('inherit');
@@ -81,11 +81,11 @@ describe('DivRow: Cell', function() {
     expect(wrapperCell).to.have.length(2);
     expect(wrapperCell.at(0)).to.have.prop('rowHeight').equal(100);
     expect(wrapperCell.at(0)).to.have.prop('cellWidth').equal(175);
-    expect(wrapperCell.at(0)).to.have.style('height').equal('100px');
-    expect(wrapperCell.at(0)).to.have.style('width').equal('175px');
+    expect(wrapperCell.at(0)).to.have.style('minHeight').equal('100px');
+    expect(wrapperCell.at(0)).to.have.style('minWidth').equal('175px');
     expect(wrapperCell.at(1)).to.have.prop('rowHeight').equal(100);
     expect(wrapperCell.at(1)).to.have.prop('cellWidth').equal(175);
-    expect(wrapperCell.at(1)).to.have.style('height').equal('100px');
-    expect(wrapperCell.at(1)).to.have.style('width').equal('175px');
+    expect(wrapperCell.at(1)).to.have.style('minHeight').equal('100px');
+    expect(wrapperCell.at(1)).to.have.style('minWidth').equal('175px');
   });
 });
