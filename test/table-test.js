@@ -7,7 +7,7 @@ describe('DivTable', function() {
   it('expect render a DivTable', () => {
     const wrapper = mount(<DivTable/>);
     expect(wrapper).to.have.style('display').equal('table');
-    expect(wrapper).to.have.style('minWidth').equal('350px');
+    expect(wrapper).to.have.style('width').equal('350px');
     expect(wrapper).to.have.style('minHeight').equal('350px');
     expect(wrapper).to.have.style('boxSizing').equal('border-box');
     expect(wrapper).to.have.style('MozBoxSizing').equal('border-box');
@@ -17,7 +17,7 @@ describe('DivTable', function() {
 
   it('expect render a DivTable, with customize width, height', () => {
     const wrapper = mount(<DivTable width={200} height={200}/>);
-    expect(wrapper).to.have.style('minWidth').equal('200px');
+    expect(wrapper).to.have.style('width').equal('200px');
     expect(wrapper).to.have.style('minHeight').equal('200px');
   });
 
@@ -50,7 +50,7 @@ describe('DivTable: Row', function() {
     const wrapper = mount(<DivTable><DivRow/></DivTable>);
     const wrapperTable = wrapper.find('DivTable');
     expect(wrapperTable).to.have.style('display').equal('table');
-    expect(wrapperTable).to.have.style('minWidth').equal('350px');
+    expect(wrapperTable).to.have.style('width').equal('350px');
     expect(wrapperTable).to.have.style('minHeight').equal('350px');
     expect(wrapperTable).to.have.style('boxSizing').equal('border-box');
     expect(wrapperTable).to.have.style('MozBoxSizing').equal('border-box');

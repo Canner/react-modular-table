@@ -82,10 +82,10 @@ describe('DivRow: Cell', function() {
     expect(wrapperCell.at(0)).to.have.prop('rowHeight').equal(100);
     expect(wrapperCell.at(0)).to.have.prop('cellWidth').equal(175);
     expect(wrapperCell.at(0)).to.have.style('minHeight').equal('100px');
-    expect(wrapperCell.at(0)).to.have.style('minWidth').equal('175px');
+    expect(wrapperCell.at(0)).to.have.style('width').equal('175px');
     expect(wrapperCell.at(1)).to.have.prop('rowHeight').equal(100);
     expect(wrapperCell.at(1)).to.have.prop('cellWidth').equal(175);
     expect(wrapperCell.at(1)).to.have.style('minHeight').equal('100px');
-    expect(wrapperCell.at(1)).to.have.style('minWidth').equal('175px');
+    expect(wrapperCell.at(1)).to.have.style('width').equal('175px');
   });
 });
