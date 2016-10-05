@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import {expect} from 'chai';
 import {DivRow, DivCell} from 'ModularTable';
@@ -73,7 +74,7 @@ describe('DivRow: Cell', function() {
       .equal('border-box');
   });
 
-  it('expect render multiple DivRow in DivCell', () => {
+  it('expect render multiple DivCell in DivRow', () => {
     const wrapper = mount(<DivRow height={350} width={350} rowHeight={100}>
       <DivCell/><DivCell/>
     </DivRow>);
@@ -87,5 +88,21 @@ describe('DivRow: Cell', function() {
     expect(wrapperCell.at(1)).to.have.prop('cellWidth').equal(175);
     expect(wrapperCell.at(1)).to.have.style('minHeight').equal('100px');
     expect(wrapperCell.at(1)).to.have.style('width').equal('175px');
+  });
+
+  it('expect render multiple DivCell with customize cellWidth in DivRow', () => {
+    const wrapper = mount(<DivRow height={350} width={350} rowHeight={100}>
+      <DivCell cellWidth={100}/><DivCell/>
+    </DivRow>);
+    const wrapperCell = wrapper.find('DivCell');
+    expect(wrapperCell).to.have.length(2);
+    expect(wrapperCell.at(0)).to.have.prop('rowHeight').equal(100);
+    expect(wrapperCell.at(0)).to.have.prop('cellWidth').equal(100);
+    expect(wrapperCell.at(0)).to.have.style('minHeight').equal('100px');
+    expect(wrapperCell.at(0)).to.have.style('width').equal('100px');
+    expect(wrapperCell.at(1)).to.have.prop('rowHeight').equal(100);
+    expect(wrapperCell.at(1)).to.have.prop('cellWidth').equal(250);
+    expect(wrapperCell.at(1)).to.have.style('minHeight').equal('100px');
+    expect(wrapperCell.at(1)).to.have.style('width').equal('250px');
   });
 });

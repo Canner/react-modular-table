@@ -32,9 +32,19 @@ export default class DivRow extends Component {
     if (!children) {
       return;
     }
-    const amountChildren = React.Children.toArray(children).length;
+    let amountChildren = React.Children.toArray(children).length;
+    let restWidth = width;
 
     React.Children.forEach(children, child => {
+      const childCellWidth = child.props.cellWidth;
+      if (childCellWidth) {
+        restWidth -= childCellWidth;
+        --amountChildren;
+      }
+    });
+
+    React.Children.forEach(children, child => {
+      const childCellWidth = child.props.cellWidth;
       if (child === null) {
         return;
       }
@@ -48,7 +58,7 @@ export default class DivRow extends Component {
       rows.push(React.cloneElement(child, {
         rowHeight,
         key: ++i,
-        cellWidth: width / amountChildren
+        cellWidth: childCellWidth ? childCellWidth : restWidth / amountChildren
       }));
     });
 

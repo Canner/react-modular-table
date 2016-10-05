@@ -37,9 +37,20 @@ export default class DivTable extends Component {
     if (!children) {
       return;
     }
-    const amountChildren = React.Children.toArray(children).length;
+
+    let amountChildren = React.Children.toArray(children).length;
+    let restHeight = height;
 
     React.Children.forEach(children, child => {
+      const childRowHeight = child.props.rowHeight;
+      if (childRowHeight) {
+        restHeight -= childRowHeight;
+        --amountChildren;
+      }
+    });
+
+    React.Children.forEach(children, child => {
+      const childRowHeight = child.props.rowHeight;
       if (child === null) {
         return;
       }
@@ -54,7 +65,7 @@ export default class DivTable extends Component {
         width,
         height,
         key: ++i,
-        rowHeight: height / amountChildren
+        rowHeight: childRowHeight ? childRowHeight : restHeight / amountChildren
       }));
     });
 

@@ -91,4 +91,22 @@ describe('DivTable: Row', function() {
     expect(wrapperRow.at(1)).to.have.style('minHeight').equal('175px');
     expect(wrapperRow.at(1)).to.have.style('width').equal('100%');
   });
+
+  it('expect render customize DivRow rowHeight in DivTable', () => {
+    const wrapper = mount(
+      <DivTable>
+        <DivRow rowHeight={50}/><DivRow/>
+      </DivTable>
+    );
+    const wrapperRow = wrapper.find('DivRow');
+    expect(wrapperRow).to.have.length(2);
+    expect(wrapperRow.at(0)).to.have.prop('height').equal(350);
+    expect(wrapperRow.at(0)).to.have.prop('width').equal(350);
+    expect(wrapperRow.at(0)).to.have.style('minHeight').equal('50px');
+    expect(wrapperRow.at(0)).to.have.style('width').equal('100%');
+    expect(wrapperRow.at(1)).to.have.prop('height').equal(350);
+    expect(wrapperRow.at(1)).to.have.prop('width').equal(350);
+    expect(wrapperRow.at(1)).to.have.style('minHeight').equal('300px');
+    expect(wrapperRow.at(1)).to.have.style('width').equal('100%');
+  });
 });

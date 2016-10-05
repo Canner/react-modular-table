@@ -69,6 +69,7 @@ Using `<div/>` to build your table row, it's children **should only be** `<DivCe
 |-----------|----------|--------------|-------------|------------------|
 | style     | object   | false        | {}          | customize styles |
 | outerStyle  | object   | false         | {}         | customize outerStyles      |
+| rowHeight  | number   | false         | height / total <DivRow/> amount         | height of the row      |
 
 other props (other than the props above) send to `<DivRow/>` will pass to the `<div/>` directly.
 
@@ -84,6 +85,7 @@ the smallest component for the div table. Use to define the cells.
 |-----------|----------|--------------|-------------|------------------|
 | style     | object   | false        | {}          | customize styles |
 | outerStyle  | object   | false         | {}         | customize outerStyles      |
+| cellWidth  | number   | false         | width / total <DivCell/> amount         | width of the cell      |
 
 other props (other than the props above) send to `<DivCell/>` will pass to the `<div/>` directly.
 
