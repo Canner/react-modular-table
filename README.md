@@ -1,4 +1,6 @@
 # react-modular-table [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Canner/react-modular-table.svg)](https://greenkeeper.io/)
 > table in modular, build your table in components!
 
 ## Installation
