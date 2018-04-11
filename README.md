@@ -98,7 +98,7 @@ In other words, `<DivCell/>` is just like `<td/>`.
 ## Start example server
 
 ```
-node devServer.js
+npm start
 ```
 
 ## Maintainer
