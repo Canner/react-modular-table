@@ -59,7 +59,7 @@
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build": "npm run build:commonjs && npm run build:flow",
     "prepublish": "npm run clean && npm run check:src && npm run build",
-    "check:src": "npm run lint && npm run test",
+    "check:src": "npm run lint",
     "test": "jest",
     "test:watch": "jest --watch",
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
