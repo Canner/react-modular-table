@@ -1,7 +1,10 @@
 import React from 'react';
 import {expect} from 'chai';
 import {DivCell} from 'ModularTable';
-import {mount} from 'enzyme';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 describe('DivCell', function() {
   it('expect render a DivCell', () => {

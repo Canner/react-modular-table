@@ -1,8 +1,10 @@
 /* eslint-disable max-len */
 import React from 'react';
-import {expect} from 'chai';
 import {DivRow, DivCell} from 'ModularTable';
-import {mount} from 'enzyme';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 describe('DivRow', function() {
   it('expect render a DivRow', () => {

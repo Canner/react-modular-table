@@ -1,24 +1,34 @@
-import React, {Component, PropTypes} from 'react';
+// @flow
+import * as React from 'react';
 import warning from 'warning';
-import Radium from 'radium';
+import styled from 'styled-components';
 
-@Radium
-export default class DivTable extends Component {
-  constructor(props) {
+const Container = styled.div`
+  width: ${props => props.width}px;
+  min-height: ${props => props.height}px;
+  display: table;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-collapse: collapse;
+`
+
+type Props = {
+  outerStyle: {[string]: any},
+  style: {[string]: any},
+  width: number,
+  height: number,
+  children: React.Element<*>
+};
+
+export default class DivTable extends React.Component<Props> {
+  constructor(props: Props) {
     super(props);
 
-    this.validRowChildren = this.validRowChildren.bind(this);
+    (this: any).validRowChildren = this.validRowChildren.bind(this);
   }
 
   static displayName = 'DivTable';
-
-  static propTypes = {
-    outerStyle: PropTypes.object,
-    style: PropTypes.object,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-    children: PropTypes.node
-  };
 
   static defaultProps = {
     style: {},
@@ -26,7 +36,7 @@ export default class DivTable extends Component {
     height: 350
   };
 
-  validRowChildren(children) {
+  validRowChildren(children: React.Element<*>) {
     const {
       height,
       width
@@ -82,22 +92,12 @@ export default class DivTable extends Component {
       ...rest
     } = this.props;
 
-    const defaultStyle = {
-      width: width,
-      minHeight: height,
-      display: 'table',
-      boxSizing: 'border-box',
-      MozBoxSizing: 'border-box',
-      WebkitBoxSizing: 'border-box',
-      borderCollapse: 'collapse'
-    };
-
     return (
-      <div style={[defaultStyle, outerStyle]} {...rest}>
+      <Container style={outerStyle} width={width} height={height} {...rest}>
         <div style={style}>
           {this.validRowChildren(children)}
         </div>
-      </div>
+      </Container>
     );
   }
 }

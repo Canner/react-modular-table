@@ -1,9 +1,7 @@
-import DivTable from './div/table';
-import DivRow from './div/row';
-import DivCell from './div/cell';
+import DivTableComponent from './div/table';
+import DivRowComponent from './div/row';
+import DivCellComponent from './div/cell';
 
-export default {
-  DivTable,
-  DivRow,
-  DivCell
-};
+export const DivTable = DivTableComponent
+export const DivRow = DivRowComponent
+export const DivCell = DivCellComponent

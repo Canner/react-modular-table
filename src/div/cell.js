@@ -1,15 +1,35 @@
-import React, {Component, PropTypes} from 'react';
-import Radium from 'radium';
+// @flow
+import * as React from 'react';
+import styled from 'styled-components';
 
-@Radium
-export default class DivCell extends Component {
-  static propTypes = {
-    outerStyle: PropTypes.object,
-    style: PropTypes.object,
-    rowHeight: PropTypes.number,
-    cellWidth: PropTypes.number,
-    children: PropTypes.node
-  };
+const OuterContainer = styled.div`
+  width: ${props => props.cellWidth}px;
+  min-height: ${props => props.rowHeight}px;
+  box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+  display: table-cell;
+  vertical-align: top;
+  word-break: break-all;
+`
+
+const InnerContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+`
+
+type Props = {
+  outerStyle: {[string]: any},
+  style: {[string]: any},
+  rowHeight: number,
+  cellWidth: number,
+  children: React.Element<*>
+};
+
+export default class DivCell extends React.Component<Props> {
 
   static displayName = 'DivCell';
 
@@ -23,32 +43,16 @@ export default class DivCell extends Component {
       ...rest
     } = this.props;
 
-    const defaultOutterStyle = {
-      width: cellWidth,
-      minHeight: rowHeight,
-      boxSizing: 'inherit',
-      MozBoxSizing: 'inherit',
-      WebkitBoxSizing: 'inherit',
-      display: 'table-cell',
-      verticalAlign: 'top',
-      wordBreak: 'break-all'
-    };
-
-    const defaultInnerStyle = {
-      width: '100%',
-      height: '100%',
-      boxSizing: 'border-box',
-      MozBoxSizing: 'border-box',
-      WebkitBoxSizing: 'border-box'
-    };
-
     return (
-      <div style={[defaultOutterStyle, outerStyle]} {...rest}
-        data-cellWidth={cellWidth} data-rowHeight={rowHeight}>
-        <div style={[defaultInnerStyle, style]}>
+      <OuterContainer
+        style={outerStyle}
+        cellWidth={cellWidth}
+        rowHeight={rowHeight}
+        {...rest}>
+        <InnerContainer style={style}>
           {children}
-        </div>
-      </div>
+        </InnerContainer>
+      </OuterContainer>
     );
   }
 }

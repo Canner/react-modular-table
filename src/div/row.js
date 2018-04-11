@@ -1,27 +1,46 @@
-import React, {Component, PropTypes} from 'react';
+// @flow
+import * as React from 'react';
 import warning from 'warning';
-import Radium from 'radium';
+import styled from 'styled-components';
 
-@Radium
-export default class DivRow extends Component {
-  constructor(props) {
+const OutterContainer = styled.div`
+  width: 100%;
+  min-height: ${props => props.rowHeight}px;
+  display: table-row;
+  vertical-align: top;
+  box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+`
+
+const InnerContainer = styled.div`
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: flex;
+`
+
+type Props = {
+  outerStyle: {[string]: any},
+  style: {[string]: any},
+  width: number,
+  height: number,
+  rowHeight: number,
+  children: React.Element<*>
+}
+
+export default class DivRow extends React.Component<Props> {
+  constructor(props: Props) {
     super(props);
 
-    this.validColumnChildren = this.validColumnChildren.bind(this);
+    (this: any).validColumnChildren = this.validColumnChildren.bind(this);
   }
-
-  static propTypes = {
-    outerStyle: PropTypes.object,
-    style: PropTypes.object,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    rowHeight: PropTypes.number,
-    children: PropTypes.node
-  };
 
   static displayName = 'DivRow';
 
-  validColumnChildren(children) {
+  validColumnChildren(children: React.Element<*>) {
     const {
       rowHeight,
       width
@@ -74,32 +93,15 @@ export default class DivRow extends Component {
       ...rest
     } = this.props;
 
-    const defaultOutterStyle = {
-      width: '100%',
-      minHeight: rowHeight,
-      display: 'table-row',
-      verticalAlign: 'top',
-      boxSizing: 'inherit',
-      MozBoxSizing: 'inherit',
-      WebkitBoxSizing: 'inherit'
-    };
-
-    const defaultInnerStyle = {
-      width: 'auto',
-      height: 'auto',
-      boxSizing: 'border-box',
-      MozBoxSizing: 'border-box',
-      WebkitBoxSizing: 'border-box',
-      display: 'flex'
-    };
-
     return (
-      <div style={[defaultOutterStyle, outerStyle]} {...rest}
-        data-rowHeight={rowHeight}>
-        <div style={[defaultInnerStyle, style]}>
+      <OutterContainer
+        style={outerStyle}
+        rowHeight={rowHeight}
+        {...rest}>
+        <InnerContainer style={style}>
           {this.validColumnChildren(children)}
-        </div>
-      </div>
+        </InnerContainer>
+      </OutterContainer>
     );
   }
 }
